@@ -90,4 +90,5 @@ docker run \
   -j ${jmeter_path}/clientEmployee/jmeter_${timestamp}.log 
 
 #6
+docker ps -a | awk '{ print $1,$2 }' | grep jmeter | awk '{print $1 }' | xargs -I {} docker rm {} -f
 docker network rm $TEST_NET
