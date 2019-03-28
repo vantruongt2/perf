@@ -53,6 +53,7 @@ docker run \
 --rm \
 jmeter \
 -n -s \
+-Jserver.rmi.ssl.disable=true \
 -Jclient.rmi.localport=7000 -Jserver.rmi.localport=7614 \
 -JnumberOfThreads=${threadCountBase} -JappName=1.0 -JloopCount=1 \
 -j ${jmeter_path}/serverEmployee/slave_${timestamp}_${IP_ADD:9:3}.log 
@@ -67,6 +68,7 @@ if [ ! -z "${LAST_SERVER}" ]; then
 	--rm \
 	jmeter \
 	-n -s \
+	-Jserver.rmi.ssl.disable=true \
 	-Jclient.rmi.localport=7000 -Jserver.rmi.localport=7614 \
 	-JnumberOfThreads=${threadCountForLast} -JappName=1.0 -JloopCount=1 \
 	-j ${jmeter_path}/serverEmployee/slave_${timestamp}_${LAST_SERVER:9:3}.log 
@@ -81,6 +83,7 @@ docker run \
   jmeter \
   -n -X \
   -Jclient.rmi.localport=7000 \
+  -Jserver.rmi.ssl.disable=true \
   -Jremote_hosts=$(echo $(printf ",%s" "${ORIGINAL_SERVER_IPS[@]}") | cut -c 2-) \
   -t ${jmeter_path}/jmx/Get_Employees.jmx \
   -l ${jmeter_path}/clientEmployee/result_${timestamp}.jtl \
