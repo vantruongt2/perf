@@ -1,9 +1,0 @@
-timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
-1553848150885,1661,Get_Weather_By_Name,200,OK,Get_Weather_By_Name_And_Id 1-1,text,true,,917,197,2,2,"https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22",1649,0,1442
-1553848151835,759,Get_Weather_By_Name,200,OK,Get_Weather_By_Name_And_Id 1-2,text,true,,917,197,2,2,"https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22",759,0,579
-1553848152595,184,Get_Weather_By_Id,200,OK,Get_Weather_By_Name_And_Id 1-2,text,true,,912,196,2,2,https://samples.openweathermap.org/data/2.5/weather?id=2172797&appid=b6907d289e10d714a6e88b30761fae22,184,0,0
-1553848152580,657,Get_Weather_By_Id,200,OK,Get_Weather_By_Name_And_Id 1-1,text,true,,912,196,2,2,https://samples.openweathermap.org/data/2.5/weather?id=2172797&appid=b6907d289e10d714a6e88b30761fae22,657,0,0
-1553848152782,792,Get_Weather_By_Name,200,OK,Get_Weather_By_Name_And_Id 1-2,text,true,,917,197,2,2,"https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22",791,0,593
-1553848153575,228,Get_Weather_By_Id,200,OK,Get_Weather_By_Name_And_Id 1-2,text,true,,912,196,2,2,https://samples.openweathermap.org/data/2.5/weather?id=2172797&appid=b6907d289e10d714a6e88b30761fae22,228,0,0
-1553848153239,743,Get_Weather_By_Name,200,OK,Get_Weather_By_Name_And_Id 1-1,text,true,,917,197,1,1,"https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22",743,0,563
-1553848153984,189,Get_Weather_By_Id,200,OK,Get_Weather_By_Name_And_Id 1-1,text,true,,912,196,1,1,https://samples.openweathermap.org/data/2.5/weather?id=2172797&appid=b6907d289e10d714a6e88b30761fae22,189,0,0
