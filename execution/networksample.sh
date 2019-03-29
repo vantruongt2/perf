@@ -1,8 +1,9 @@
 #!/bin/bash
 
-numberOfSlave=$1
-threadCountBase=$2
-threadCountForLast=$3
+data_folder=$1
+numberOfSlave=$2
+threadCountBase=$3
+threadCountForLast=$4
 
 #1
 SUB_NET="172.18.0.0/16"
@@ -14,14 +15,17 @@ LAST_SERVER=
 
 declare -a SERVER_IPS
 for ((counter=0; counter<$numberOfSlave; counter+=1)); do
-	echo adding $BASE_SUBNET_IP_1$BASE_CHILD_IP
 	SERVER_IPS+=("$BASE_SUBNET_IP_1$BASE_CHILD_IP")
 	((BASE_CHILD_IP+=1))
 done
 
-echo "threadCountForLast " $threadCountForLast
+ORIGINAL_SERVER_IPS=("${SERVER_IPS[@]}")
+
 echo "raw list:" ${SERVER_IPS[@]}
-if [ -z "${threadCountForLast}" ]; then
+echo "threadCountBase: " $threadCountBase
+echo "threadCountForLast: " $threadCountForLast
+
+if [[ -z "${threadCountForLast}" || "${threadCountForLast}" -eq "0" ]]; then
 	echo "NO need thread count for last"
 else
 	LAST_SERVER=${SERVER_IPS[-1]}	
@@ -30,7 +34,6 @@ fi
 
 #2
 timestamp=$(date +%Y%m%d_%H%M%S)
-data_folder=/home/test/Desktop/workspace/perf/src/perf
 jmeter_path=/mnt/jmeter
 TEST_NET=perfsamplenet
 
@@ -42,6 +45,7 @@ docker network create --subnet=$SUB_NET $TEST_NET
 echo "Create JMeter slave"
 for IP_ADD in "${SERVER_IPS[@]}"
 do
+echo adding $IP_ADD
 docker run \
 -dit \
 --net $TEST_NET --ip $IP_ADD \
@@ -49,8 +53,8 @@ docker run \
 --rm \
 jmeter \
 -n -s \
--Jserver.rmi.ssl.disable=true \
--Jclient.rmi.localport=7000 -Jserver.rmi.localport=7614 \
+-Jserver.rmi.ssl.keystore.file=${jmeter_path}/keys/rmi_keystore.jks \
+-Jclient.rmi.localport=7000 -Jserver.rmi.localport=60000 \
 -JnumberOfThreads=${threadCountBase} -JappName=2.0 -JloopCount=1 \
 -j ${jmeter_path}/server/slave_${timestamp}_${IP_ADD:9:3}.log 
 done
@@ -64,8 +68,8 @@ if [ ! -z "${LAST_SERVER}" ]; then
 	--rm \
 	jmeter \
 	-n -s \
-	-Jserver.rmi.ssl.disable=true \
-	-Jclient.rmi.localport=7000 -Jserver.rmi.localport=7614 \
+	-Jserver.rmi.ssl.keystore.file=${jmeter_path}/keys/rmi_keystore.jks \
+	-Jclient.rmi.localport=7000 -Jserver.rmi.localport=60000 \
 	-JnumberOfThreads=${threadCountForLast} -JappName=2.0 -JloopCount=1 \
 	-j ${jmeter_path}/server/slave_${timestamp}_${LAST_SERVER:9:3}.log 
 fi
@@ -78,12 +82,13 @@ docker run \
   --rm \
   jmeter \
   -n -X \
-  -Jserver.rmi.ssl.disable=true \
+  -Jserver.rmi.ssl.keystore.file=${jmeter_path}/keys/rmi_keystore.jks \
   -Jclient.rmi.localport=7000 \
-  -Jremote_hosts=$(echo $(printf ",%s" "${SERVER_IPS[@]}") | cut -c 2-) \
-  -t ${jmeter_path}/xml/Weather.jmx \
+  -Jremote_hosts $(echo $(printf ",%s" "${ORIGINAL_SERVER_IPS[@]}") | cut -c 2-) \
+  -t ${jmeter_path}/jmx/Weather.jmx \
   -l ${jmeter_path}/client/result_${timestamp}.jtl \
   -j ${jmeter_path}/client/jmeter_${timestamp}.log 
 
 #6
+docker ps -a | awk '{ print $1,$2 }' | grep jmeter | awk '{print $1 }' | xargs -I {} docker rm {} -f
 docker network rm $TEST_NET
