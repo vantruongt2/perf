@@ -1,0 +1,45 @@
+2019-03-29 09:14:27,566 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2019-03-29 09:14:27,589 INFO o.a.j.JMeter: Loading user properties from: /opt/apache-jmeter-5.1/bin/user.properties
+2019-03-29 09:14:27,590 INFO o.a.j.JMeter: Loading system properties from: /opt/apache-jmeter-5.1/bin/system.properties
+2019-03-29 09:14:27,590 INFO o.a.j.JMeter: Setting JMeter property: server.rmi.ssl.keystore.file=/mnt/jmeter/keys/rmi_keystore.jks
+2019-03-29 09:14:27,590 INFO o.a.j.JMeter: Setting JMeter property: client.rmi.localport=7000
+2019-03-29 09:14:27,591 INFO o.a.j.JMeter: Setting JMeter property: server.rmi.localport=60000
+2019-03-29 09:14:27,591 INFO o.a.j.JMeter: Setting JMeter property: numberOfThreads=4
+2019-03-29 09:14:27,591 INFO o.a.j.JMeter: Setting JMeter property: appName=2.0
+2019-03-29 09:14:27,591 INFO o.a.j.JMeter: Setting JMeter property: loopCount=1
+2019-03-29 09:14:27,598 INFO o.a.j.JMeter: Copyright (c) 1998-2019 The Apache Software Foundation
+2019-03-29 09:14:27,598 INFO o.a.j.JMeter: Version 5.1 r1853635
+2019-03-29 09:14:27,599 INFO o.a.j.JMeter: java.version=1.8.0_201
+2019-03-29 09:14:27,599 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2019-03-29 09:14:27,599 INFO o.a.j.JMeter: os.name=Linux
+2019-03-29 09:14:27,599 INFO o.a.j.JMeter: os.arch=amd64
+2019-03-29 09:14:27,599 INFO o.a.j.JMeter: os.version=4.4.0-143-generic
+2019-03-29 09:14:27,599 INFO o.a.j.JMeter: file.encoding=UTF-8
+2019-03-29 09:14:27,599 INFO o.a.j.JMeter: java.awt.headless=true
+2019-03-29 09:14:27,599 INFO o.a.j.JMeter: Max memory     =117440512
+2019-03-29 09:14:27,599 INFO o.a.j.JMeter: Available Processors =4
+2019-03-29 09:14:27,604 INFO o.a.j.JMeter: Default Locale=English (EN)
+2019-03-29 09:14:27,605 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2019-03-29 09:14:27,605 INFO o.a.j.JMeter: JMeterHome=/opt/apache-jmeter-5.1
+2019-03-29 09:14:27,605 INFO o.a.j.JMeter: user.dir  =/opt/apache-jmeter-5.1
+2019-03-29 09:14:27,605 INFO o.a.j.JMeter: PWD       =/opt/apache-jmeter-5.1
+2019-03-29 09:14:27,606 INFO o.a.j.JMeter: IP: 172.18.0.3 Name: bf03d673c447 FullName: bf03d673c447
+2019-03-29 09:14:27,619 INFO o.a.j.r.RmiUtils: System property 'java.rmi.server.hostname' is not defined, using localHost address
+2019-03-29 09:14:27,619 INFO o.a.j.r.RmiUtils: Local IP address=172.18.0.3
+2019-03-29 09:14:27,756 INFO o.a.j.r.SSLRMIServerSocketFactory: Created SSLSocket: [SSL: ServerSocket[addr=bf03d673c447/172.18.0.3,localport=60000]]
+2019-03-29 09:14:27,764 INFO o.a.j.e.RemoteJMeterEngineImpl: Starting backing engine on 1099
+2019-03-29 09:14:27,765 INFO o.a.j.r.RmiUtils: System property 'java.rmi.server.hostname' is not defined, using localHost address
+2019-03-29 09:14:27,765 INFO o.a.j.r.RmiUtils: Local IP address=172.18.0.3
+2019-03-29 09:14:27,765 INFO o.a.j.e.RemoteJMeterEngineImpl: IP address is a site-local address; this may cause problems with remote access.
+	Can be overridden by defining the system property 'java.rmi.server.hostname' - see jmeter-server script file
+2019-03-29 09:14:27,765 INFO o.a.j.e.RemoteJMeterEngineImpl: Creating RMI registry (server.rmi.create=true)
+2019-03-29 09:14:27,765 INFO o.a.j.r.RmiUtils: System property 'java.rmi.server.hostname' is not defined, using localHost address
+2019-03-29 09:14:27,766 INFO o.a.j.r.RmiUtils: Local IP address=172.18.0.3
+2019-03-29 09:14:27,771 INFO o.a.j.r.SSLRMIServerSocketFactory: Created SSLSocket: [SSL: ServerSocket[addr=bf03d673c447/172.18.0.3,localport=1099]]
+2019-03-29 09:14:27,773 INFO o.a.j.e.RemoteJMeterEngineImpl: Bound to RMI registry on port 1099
+2019-03-29 09:14:33,501 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-03-29 09:14:33,501 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-03-29 09:14:33,502 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-03-29 09:14:33,502 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-03-29 09:14:33,502 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2019-03-29 09:14:33,502 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser

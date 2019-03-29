@@ -1,0 +1,37 @@
+2019-03-29 09:32:50,062 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2019-03-29 09:32:50,092 INFO o.a.j.JMeter: Loading user properties from: /opt/apache-jmeter-5.1/bin/user.properties
+2019-03-29 09:32:50,092 INFO o.a.j.JMeter: Loading system properties from: /opt/apache-jmeter-5.1/bin/system.properties
+2019-03-29 09:32:50,093 INFO o.a.j.JMeter: Setting JMeter property: server.rmi.ssl.disable=true
+2019-03-29 09:32:50,093 INFO o.a.j.JMeter: Setting JMeter property: client.rmi.localport=7000
+2019-03-29 09:32:50,093 INFO o.a.j.JMeter: Setting JMeter property: server.rmi.localport=7614
+2019-03-29 09:32:50,093 INFO o.a.j.JMeter: Setting JMeter property: numberOfThreads=4
+2019-03-29 09:32:50,093 INFO o.a.j.JMeter: Setting JMeter property: appName=1.0
+2019-03-29 09:32:50,093 INFO o.a.j.JMeter: Setting JMeter property: loopCount=1
+2019-03-29 09:32:50,111 INFO o.a.j.JMeter: Copyright (c) 1998-2019 The Apache Software Foundation
+2019-03-29 09:32:50,111 INFO o.a.j.JMeter: Version 5.1 r1853635
+2019-03-29 09:32:50,112 INFO o.a.j.JMeter: java.version=1.8.0_201
+2019-03-29 09:32:50,112 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2019-03-29 09:32:50,112 INFO o.a.j.JMeter: os.name=Linux
+2019-03-29 09:32:50,112 INFO o.a.j.JMeter: os.arch=amd64
+2019-03-29 09:32:50,112 INFO o.a.j.JMeter: os.version=4.4.0-143-generic
+2019-03-29 09:32:50,112 INFO o.a.j.JMeter: file.encoding=UTF-8
+2019-03-29 09:32:50,112 INFO o.a.j.JMeter: java.awt.headless=true
+2019-03-29 09:32:50,113 INFO o.a.j.JMeter: Max memory     =394264576
+2019-03-29 09:32:50,113 INFO o.a.j.JMeter: Available Processors =4
+2019-03-29 09:32:50,119 INFO o.a.j.JMeter: Default Locale=English (EN)
+2019-03-29 09:32:50,120 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2019-03-29 09:32:50,120 INFO o.a.j.JMeter: JMeterHome=/opt/apache-jmeter-5.1
+2019-03-29 09:32:50,120 INFO o.a.j.JMeter: user.dir  =/opt/apache-jmeter-5.1
+2019-03-29 09:32:50,121 INFO o.a.j.JMeter: PWD       =/opt/apache-jmeter-5.1
+2019-03-29 09:32:50,121 INFO o.a.j.JMeter: IP: 172.20.0.3 Name: 858f2528dff5 FullName: 858f2528dff5
+2019-03-29 09:32:50,134 INFO o.a.j.r.RmiUtils: Disabling SSL for RMI as server.rmi.ssl.disable is set to 'true'
+2019-03-29 09:32:50,134 INFO o.a.j.r.RmiUtils: Disabling SSL for RMI as server.rmi.ssl.disable is set to 'true'
+2019-03-29 09:32:50,167 INFO o.a.j.e.RemoteJMeterEngineImpl: Starting backing engine on 1099
+2019-03-29 09:32:50,167 INFO o.a.j.r.RmiUtils: System property 'java.rmi.server.hostname' is not defined, using localHost address
+2019-03-29 09:32:50,167 INFO o.a.j.r.RmiUtils: Local IP address=172.20.0.3
+2019-03-29 09:32:50,168 INFO o.a.j.e.RemoteJMeterEngineImpl: IP address is a site-local address; this may cause problems with remote access.
+	Can be overridden by defining the system property 'java.rmi.server.hostname' - see jmeter-server script file
+2019-03-29 09:32:50,168 INFO o.a.j.e.RemoteJMeterEngineImpl: Creating RMI registry (server.rmi.create=true)
+2019-03-29 09:32:50,168 INFO o.a.j.r.RmiUtils: Disabling SSL for RMI as server.rmi.ssl.disable is set to 'true'
+2019-03-29 09:32:50,168 INFO o.a.j.r.RmiUtils: Disabling SSL for RMI as server.rmi.ssl.disable is set to 'true'
+2019-03-29 09:32:50,172 INFO o.a.j.e.RemoteJMeterEngineImpl: Bound to RMI registry on port 1099

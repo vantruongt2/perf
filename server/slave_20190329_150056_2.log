@@ -1,0 +1,89 @@
+2019-03-29 09:01:11,807 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2019-03-29 09:01:11,972 INFO o.a.j.JMeter: Loading user properties from: /opt/apache-jmeter-5.1/bin/user.properties
+2019-03-29 09:01:11,989 INFO o.a.j.JMeter: Loading system properties from: /opt/apache-jmeter-5.1/bin/system.properties
+2019-03-29 09:01:11,995 INFO o.a.j.JMeter: Setting JMeter property: server.rmi.ssl.keystore.file=/mnt/jmeter/keys/rmi_keystore.jks
+2019-03-29 09:01:11,996 INFO o.a.j.JMeter: Setting JMeter property: client.rmi.localport=7000
+2019-03-29 09:01:11,996 INFO o.a.j.JMeter: Setting JMeter property: server.rmi.localport=60000
+2019-03-29 09:01:11,996 INFO o.a.j.JMeter: Setting JMeter property: numberOfThreads=3
+2019-03-29 09:01:11,996 INFO o.a.j.JMeter: Setting JMeter property: appName=2.0
+2019-03-29 09:01:11,996 INFO o.a.j.JMeter: Setting JMeter property: loopCount=1
+2019-03-29 09:01:12,028 INFO o.a.j.JMeter: Copyright (c) 1998-2019 The Apache Software Foundation
+2019-03-29 09:01:12,029 INFO o.a.j.JMeter: Version 5.1 r1853635
+2019-03-29 09:01:12,029 INFO o.a.j.JMeter: java.version=1.8.0_201
+2019-03-29 09:01:12,029 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2019-03-29 09:01:12,029 INFO o.a.j.JMeter: os.name=Linux
+2019-03-29 09:01:12,029 INFO o.a.j.JMeter: os.arch=amd64
+2019-03-29 09:01:12,029 INFO o.a.j.JMeter: os.version=4.4.0-143-generic
+2019-03-29 09:01:12,029 INFO o.a.j.JMeter: file.encoding=UTF-8
+2019-03-29 09:01:12,030 INFO o.a.j.JMeter: java.awt.headless=true
+2019-03-29 09:01:12,030 INFO o.a.j.JMeter: Max memory     =176160768
+2019-03-29 09:01:12,030 INFO o.a.j.JMeter: Available Processors =4
+2019-03-29 09:01:12,037 INFO o.a.j.JMeter: Default Locale=English (EN)
+2019-03-29 09:01:12,038 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2019-03-29 09:01:12,038 INFO o.a.j.JMeter: JMeterHome=/opt/apache-jmeter-5.1
+2019-03-29 09:01:12,038 INFO o.a.j.JMeter: user.dir  =/opt/apache-jmeter-5.1
+2019-03-29 09:01:12,038 INFO o.a.j.JMeter: PWD       =/opt/apache-jmeter-5.1
+2019-03-29 09:01:12,039 INFO o.a.j.JMeter: IP: 172.18.0.2 Name: 17d9891da0d0 FullName: 17d9891da0d0
+2019-03-29 09:01:12,163 INFO o.a.j.r.RmiUtils: System property 'java.rmi.server.hostname' is not defined, using localHost address
+2019-03-29 09:01:12,164 INFO o.a.j.r.RmiUtils: Local IP address=172.18.0.2
+2019-03-29 09:01:12,740 INFO o.a.j.r.SSLRMIServerSocketFactory: Created SSLSocket: [SSL: ServerSocket[addr=17d9891da0d0/172.18.0.2,localport=60000]]
+2019-03-29 09:01:12,835 INFO o.a.j.e.RemoteJMeterEngineImpl: Starting backing engine on 1099
+2019-03-29 09:01:12,835 INFO o.a.j.r.RmiUtils: System property 'java.rmi.server.hostname' is not defined, using localHost address
+2019-03-29 09:01:12,835 INFO o.a.j.r.RmiUtils: Local IP address=172.18.0.2
+2019-03-29 09:01:12,835 INFO o.a.j.e.RemoteJMeterEngineImpl: IP address is a site-local address; this may cause problems with remote access.
+	Can be overridden by defining the system property 'java.rmi.server.hostname' - see jmeter-server script file
+2019-03-29 09:01:12,836 INFO o.a.j.e.RemoteJMeterEngineImpl: Creating RMI registry (server.rmi.create=true)
+2019-03-29 09:01:12,836 INFO o.a.j.r.RmiUtils: System property 'java.rmi.server.hostname' is not defined, using localHost address
+2019-03-29 09:01:12,836 INFO o.a.j.r.RmiUtils: Local IP address=172.18.0.2
+2019-03-29 09:01:12,859 INFO o.a.j.r.SSLRMIServerSocketFactory: Created SSLSocket: [SSL: ServerSocket[addr=17d9891da0d0/172.18.0.2,localport=1099]]
+2019-03-29 09:01:12,869 INFO o.a.j.e.RemoteJMeterEngineImpl: Bound to RMI registry on port 1099
+2019-03-29 09:01:12,989 ERROR o.a.j.JMeter: Uncaught exception: 
+java.lang.ExceptionInInitializerError: null
+	at sun.security.ssl.SSLSessionImpl.<init>(SSLSessionImpl.java:188) ~[?:1.8.0_201]
+	at sun.security.ssl.SSLSessionImpl.<init>(SSLSessionImpl.java:152) ~[?:1.8.0_201]
+	at sun.security.ssl.SSLSessionImpl.<clinit>(SSLSessionImpl.java:79) ~[?:1.8.0_201]
+	at sun.security.ssl.SSLSocketImpl.init(SSLSocketImpl.java:598) ~[?:1.8.0_201]
+	at sun.security.ssl.SSLSocketImpl.<init>(SSLSocketImpl.java:518) ~[?:1.8.0_201]
+	at sun.security.ssl.SSLServerSocketImpl.accept(SSLServerSocketImpl.java:343) ~[?:1.8.0_201]
+	at sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:405) ~[?:1.8.0_201]
+	at sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:377) ~[?:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_201]
+Caused by: java.security.ProviderException: Could not initialize NSS
+	at sun.security.pkcs11.SunPKCS11.<init>(SunPKCS11.java:223) ~[sunpkcs11.jar:1.8.0_201]
+	at sun.security.pkcs11.SunPKCS11.<init>(SunPKCS11.java:103) ~[sunpkcs11.jar:1.8.0_201]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_201]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderConfig$2.run(ProviderConfig.java:224) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderConfig$2.run(ProviderConfig.java:206) ~[?:1.8.0_201]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderConfig.doLoadProvider(ProviderConfig.java:206) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderConfig.getProvider(ProviderConfig.java:187) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderList.getProvider(ProviderList.java:233) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderList.getIndex(ProviderList.java:263) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderList.getProviderConfig(ProviderList.java:247) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderList.getProvider(ProviderList.java:253) ~[?:1.8.0_201]
+	at java.security.Security.getProvider(Security.java:503) ~[?:1.8.0_201]
+	at sun.security.ssl.SignatureAndHashAlgorithm.<clinit>(SignatureAndHashAlgorithm.java:415) ~[?:1.8.0_201]
+	... 9 more
+Caused by: java.io.FileNotFoundException: /usr/lib/libnss3.so
+	at sun.security.pkcs11.Secmod.initialize(Secmod.java:193) ~[sunpkcs11.jar:1.8.0_201]
+	at sun.security.pkcs11.SunPKCS11.<init>(SunPKCS11.java:218) ~[sunpkcs11.jar:1.8.0_201]
+	at sun.security.pkcs11.SunPKCS11.<init>(SunPKCS11.java:103) ~[sunpkcs11.jar:1.8.0_201]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_201]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderConfig$2.run(ProviderConfig.java:224) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderConfig$2.run(ProviderConfig.java:206) ~[?:1.8.0_201]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderConfig.doLoadProvider(ProviderConfig.java:206) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderConfig.getProvider(ProviderConfig.java:187) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderList.getProvider(ProviderList.java:233) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderList.getIndex(ProviderList.java:263) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderList.getProviderConfig(ProviderList.java:247) ~[?:1.8.0_201]
+	at sun.security.jca.ProviderList.getProvider(ProviderList.java:253) ~[?:1.8.0_201]
+	at java.security.Security.getProvider(Security.java:503) ~[?:1.8.0_201]
+	at sun.security.ssl.SignatureAndHashAlgorithm.<clinit>(SignatureAndHashAlgorithm.java:415) ~[?:1.8.0_201]
+	... 9 more

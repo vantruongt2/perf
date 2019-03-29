@@ -1,9 +1,10 @@
 #!/bin/bash
 
 data_folder=$1
-numberOfSlave=$2
-threadCountBase=$3
-threadCountForLast=$4
+targetVersion=$2
+numberOfSlave=$3
+threadCountBase=$4
+threadCountForLast=$5
 
 #1
 SUB_NET="172.20.0.0/16"
@@ -55,7 +56,7 @@ jmeter \
 -n -s \
 -Jserver.rmi.ssl.disable=true \
 -Jclient.rmi.localport=7000 -Jserver.rmi.localport=7614 \
--JnumberOfThreads=${threadCountBase} -JappName=1.0 -JloopCount=1 \
+-JnumberOfThreads=${threadCountBase} -JappName=${targetVersion} -JloopCount=1 \
 -j ${jmeter_path}/serverEmployee/slave_${timestamp}_${IP_ADD:9:3}.log 
 done
 
@@ -70,7 +71,7 @@ if [ ! -z "${LAST_SERVER}" ]; then
 	-n -s \
 	-Jserver.rmi.ssl.disable=true \
 	-Jclient.rmi.localport=7000 -Jserver.rmi.localport=7614 \
-	-JnumberOfThreads=${threadCountForLast} -JappName=1.0 -JloopCount=1 \
+	-JnumberOfThreads=${threadCountForLast} -JappName=${targetVersion} -JloopCount=1 \
 	-j ${jmeter_path}/serverEmployee/slave_${timestamp}_${LAST_SERVER:9:3}.log 
 fi
 
