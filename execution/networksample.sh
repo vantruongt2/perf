@@ -7,10 +7,10 @@ threadCountBase=$4
 threadCountForLast=$5
 
 #1
-SUB_NET="172.20.0.0/16"
-CLIENT_IP=172.20.0.254
-BASE_SUBNET_IP_1="172.20.0."
-BASE_SUBNET_IP_2="172.20."
+SUB_NET="172.18.0.0/16"
+CLIENT_IP=172.18.0.100
+BASE_SUBNET_IP_1="172.18.0."
+BASE_SUBNET_IP_2="172.18."
 BASE_CHILD_IP=2
 LAST_SERVER=
 
@@ -86,6 +86,7 @@ docker run \
   -Jserver.rmi.ssl.keystore.file=${jmeter_path}/keys/rmi_keystore.jks \
   -Jclient.rmi.localport=7000 \
   -Jremote_hosts $(echo $(printf ",%s" "${ORIGINAL_SERVER_IPS[@]}") | cut -c 2-) \
+  -JnumberOfThreads=${threadCountBase} -JappName=${targetVersion} -JloopCount=1 \
   -t ${jmeter_path}/jmx/Weather.jmx \
   -l ${jmeter_path}/client/result_${timestamp}.jtl \
   -j ${jmeter_path}/client/jmeter_${timestamp}.log 
