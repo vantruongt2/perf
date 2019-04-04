@@ -47,7 +47,7 @@ docker run \
 --net $TEST_NET --ip $IP_ADD \
 -v "${data_folder}":${jmeter_path} \
 --rm \
-jmeter \
+jmeter-base \
 -n -s \
 -Jserver.rmi.ssl.keystore.file=${jmeter_path}/keys/rmi_keystore.jks \
 -Jclient.rmi.localport=7000 -Jserver.rmi.localport=60000 \
@@ -60,7 +60,7 @@ docker run \
   --net $TEST_NET --ip $CLIENT_IP \
   -v "${data_folder}":${jmeter_path} \
   --rm \
-  jmeter \
+  jmeter-master \
   -n -X \
   -Jserver.rmi.ssl.keystore.file=${jmeter_path}/keys/rmi_keystore.jks \
   -Jclient.rmi.localport=7000 \
