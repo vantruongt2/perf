@@ -86,6 +86,7 @@ docker run \
   -Jclient.rmi.localport=7000 \
   -Jserver.rmi.ssl.disable=true \
   -Jremote_hosts=$(echo $(printf ",%s" "${ORIGINAL_SERVER_IPS[@]}") | cut -c 2-) \
+  -JnumberOfThreads=${threadCountBase} -JappName=${targetVersion} -JloopCount=1 \
   -t ${jmeter_path}/jmx/Get_Employees.jmx \
   -l ${jmeter_path}/clientEmployee/result_${timestamp}.jtl \
   -j ${jmeter_path}/clientEmployee/jmeter_${timestamp}.log 
