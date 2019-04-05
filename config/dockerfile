@@ -2,14 +2,10 @@
 FROM alpine:3.6
 
 # 2
-LABEL maintainer=”vincenzo.marrazzo@domain.personal>
+LABEL maintainer="vincenzo.marrazzo@domain.personal"
 
 # 3 
 ARG JMETER_VERSION="5.1"
-
-ARG JMETER_INFLUXDB_WRITER_VERSION="1.0"
-ARG JMETER_INFLUXDB_WRITER_NAME=JMeter-InfluxDB-Writer-${JMETER_INFLUXDB_WRITER_VERSION}.jar
-ARG JMETER_PLUGIN_INFLUXDB_WRITER_URL=https://github.com/NovatecConsulting/JMeter-InfluxDB-Writer/releases/download/v-${JMETER_INFLUXDB_WRITER_VERSION}/${JMETER_INFLUXDB_WRITER_NAME}
 
 # 4
 ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
@@ -39,7 +35,6 @@ RUN apk add --no-cache nss
 # 6
 RUN curl -L --silent ${JMETER_PLUGINS_DOWNLOAD_URL}/jmeter-plugins-dummy/0.2/jmeter-plugins-dummy-0.2.jar -o ${JMETER_PLUGINS_FOLDER}/jmeter-plugins-dummy-0.2.jar
 RUN curl -L --silent ${JMETER_PLUGINS_DOWNLOAD_URL}/jmeter-plugins-cmn-jmeter/0.5/jmeter-plugins-cmn-jmeter-0.5.jar -o ${JMETER_PLUGINS_FOLDER}/jmeter-plugins-cmn-jmeter-0.5.jar
-RUN curl -L --silent ${JMETER_PLUGIN_INFLUXDB_WRITER_URL} -o ${JMETER_INFLUXDB_WRITER_NAME}
 
 # 7
 ENV PATH $PATH:$JMETER_BIN
