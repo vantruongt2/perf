@@ -17,7 +17,7 @@ BASE_CHILD_IP=2
 
 declare -a SERVER_IPS
 
-for ((counter=0; counter<$numberOfSlave; counter+=1)); do 
+for ((counter=0; counter< ($numberOfSlave -1) ; counter+=1)); do 
   SERVER_IPS+=("$BASE_SUBNET_IP_1$BASE_CHILD_IP")
   ((BASE_CHILD_IP+=1))
 done
@@ -77,5 +77,5 @@ docker run \
   -j ${data_src}/client/jmeter_${timestamp}.log 
 
 #6
-docker ps -a | awk '{ print $1,$2 }' | grep ^jmeter | awk '{print $1 }' | xargs -I {} docker rm {} -f
+docker ps -a | awk '{ print $1,$2 }' | grep jmeter | awk '{print $1 }' | xargs -I {} docker rm {} -f
 docker network rm $TEST_NET

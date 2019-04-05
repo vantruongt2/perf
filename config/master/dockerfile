@@ -30,15 +30,3 @@ RUN apk add --no-cache nss
 
 # 6
 RUN curl -L --silent ${JMETER_PLUGIN_INFLUXDB_WRITER_URL} -o ${JMETER_PLUGINS_FOLDER}/${JMETER_INFLUXDB_WRITER_NAME}
-
-# 7
-ENV PATH $PATH:$JMETER_BIN
-
-# 8
-COPY launch.sh /
-
-#9
-WORKDIR ${JMETER_HOME}
-
-#10
-ENTRYPOINT ["/launch.sh"]
