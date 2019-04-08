@@ -1,0 +1,17 @@
+{
+	"group_id"		:	{
+		"devTestLab_id"	:	{
+			"labs"	:	{	
+				"jmeter_lab"	:	{
+					"vmname":	[
+						"slave-001",
+						"slave-002",
+						"slave-003",
+						"slave-004",
+						"slave-005"
+						]
+					}	
+			}
+		}
+	}
+}
