@@ -1,0 +1,3 @@
+setprop("threads",args[0]);
+setprop("ramUp",args[1]);
+setprop("loopCount",args[2]);
