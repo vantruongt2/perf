@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1 r1853635">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Get_Weather" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -28,6 +28,36 @@
             <stringProp name="Argument.value">${__P(requestProtocol,https)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="threads" elementType="Argument">
+            <stringProp name="Argument.name">threads</stringProp>
+            <stringProp name="Argument.value">${__P(threads,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="rampUp" elementType="Argument">
+            <stringProp name="Argument.name">rampUp</stringProp>
+            <stringProp name="Argument.value">${__P(rampUp,0)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="loopCount" elementType="Argument">
+            <stringProp name="Argument.name">loopCount</stringProp>
+            <stringProp name="Argument.value">${__P(loopCount,1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dbHost" elementType="Argument">
+            <stringProp name="Argument.name">dbHost</stringProp>
+            <stringProp name="Argument.value">${__P(dbHost,http://192.168.190.125:8086)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dbName" elementType="Argument">
+            <stringProp name="Argument.name">dbName</stringProp>
+            <stringProp name="Argument.value">${__P(dbName,jmeter)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="appName" elementType="Argument">
+            <stringProp name="Argument.name">appName</stringProp>
+            <stringProp name="Argument.value">${__P(appName,1.0)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -49,10 +79,10 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">${__P(loopCount,1)}</stringProp>
+          <stringProp name="LoopController.loops">${loopCount}</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(threads,)}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">${__P(rampUp,0)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${threads}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
@@ -107,12 +137,12 @@
             </elementProp>
             <elementProp name="influxdbUrl" elementType="Argument">
               <stringProp name="Argument.name">influxdbUrl</stringProp>
-              <stringProp name="Argument.value">${__P(dbHost,http://192.168.190.125:8086)}/write?db=${__P(dbName,jmeter)}</stringProp>
+              <stringProp name="Argument.value">${dbHost}/write?db=${dbName}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="application" elementType="Argument">
               <stringProp name="Argument.name">application</stringProp>
-              <stringProp name="Argument.value">${__P(appName,1.0)}</stringProp>
+              <stringProp name="Argument.value">${appName}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="measurement" elementType="Argument">
@@ -137,7 +167,7 @@
             </elementProp>
             <elementProp name="testTitle" elementType="Argument">
               <stringProp name="Argument.name">testTitle</stringProp>
-              <stringProp name="Argument.value">TestTitle_${__P(appName,1.0)}</stringProp>
+              <stringProp name="Argument.value">TestTitle_${appName}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="eventTags" elementType="Argument">
