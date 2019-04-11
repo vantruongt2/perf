@@ -43,16 +43,6 @@
             <stringProp name="Argument.value">${__P(loopCount,1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="dbHost" elementType="Argument">
-            <stringProp name="Argument.name">dbHost</stringProp>
-            <stringProp name="Argument.value">${__P(dbHost,http://192.168.190.125:8086)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="dbName" elementType="Argument">
-            <stringProp name="Argument.name">dbName</stringProp>
-            <stringProp name="Argument.value">${__P(dbName,jmeter)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="appName" elementType="Argument">
             <stringProp name="Argument.name">appName</stringProp>
             <stringProp name="Argument.value">${__P(appName,1.0)}</stringProp>
@@ -137,7 +127,7 @@
             </elementProp>
             <elementProp name="influxdbUrl" elementType="Argument">
               <stringProp name="Argument.name">influxdbUrl</stringProp>
-              <stringProp name="Argument.value">${dbHost}/write?db=${dbName}</stringProp>
+              <stringProp name="Argument.value">${__P(dbHost,http://192.168.190.125:8086)}/write?db=${__P(dbName,jmeter)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="application" elementType="Argument">
