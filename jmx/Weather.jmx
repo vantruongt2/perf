@@ -43,11 +43,6 @@
             <stringProp name="Argument.value">${__P(loopCount,1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="appName" elementType="Argument">
-            <stringProp name="Argument.name">appName</stringProp>
-            <stringProp name="Argument.value">${__P(appName,1.0)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -132,7 +127,7 @@
             </elementProp>
             <elementProp name="application" elementType="Argument">
               <stringProp name="Argument.name">application</stringProp>
-              <stringProp name="Argument.value">${appName}</stringProp>
+              <stringProp name="Argument.value">${__P(appName,1.0)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="measurement" elementType="Argument">
@@ -157,7 +152,7 @@
             </elementProp>
             <elementProp name="testTitle" elementType="Argument">
               <stringProp name="Argument.name">testTitle</stringProp>
-              <stringProp name="Argument.value">TestTitle_${appName}</stringProp>
+              <stringProp name="Argument.value">TestTitle_${__P(appName,1.0)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="eventTags" elementType="Argument">
