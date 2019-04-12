@@ -5,6 +5,7 @@ FROM vantruongt2/jmeter:jmeter-base
 EXPOSE 1099 50000
 
 COPY entrypoint.sh /
+COPY ../../keys/rmi_keystore.jks ${JMETER_BIN}/
 
 # Application to run on starting the container
 ENTRYPOINT ["/entrypoint.sh"]
