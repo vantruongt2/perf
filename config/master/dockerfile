@@ -1,32 +1,19 @@
 # 1
-FROM jmeter-base
+FROM vantruongt2/jmeter:jmeter-base
 
 # 2
 LABEL maintainer="tien.tran"
-
-# 3 
-ARG JMETER_VERSION="5.1"
 
 ARG JMETER_INFLUXDB_WRITER_VERSION="1.0"
 ARG JMETER_INFLUXDB_WRITER_NAME=JMeter-InfluxDB-Writer-${JMETER_INFLUXDB_WRITER_VERSION}.jar
 ARG JMETER_PLUGIN_INFLUXDB_WRITER_URL=https://github.com/NovatecConsulting/JMeter-InfluxDB-Writer/releases/download/v-${JMETER_INFLUXDB_WRITER_VERSION}/${JMETER_INFLUXDB_WRITER_NAME}
 
-# 4
-ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
-ENV JMETER_BIN  ${JMETER_HOME}/bin
+# 3
 ENV JMETER_PLUGINS_FOLDER ${JMETER_HOME}/lib/ext/
 
-# 5
-RUN    apk update \
-	&& apk upgrade \
-	&& apk add ca-certificates \
-	&& update-ca-certificates \
-            && apk add --update openjdk8-jre tzdata curl unzip bash \
-            && cp /usr/share/zoneinfo/Europe/Rome /etc/localtime \
-            && echo "Europe/Rome" >  /etc/timezone \
-	&& rm -rf /var/cache/apk/*	
-
-RUN apk add --no-cache nss
-
-# 6
+# 4
 RUN curl -L --silent ${JMETER_PLUGIN_INFLUXDB_WRITER_URL} -o ${JMETER_PLUGINS_FOLDER}/${JMETER_INFLUXDB_WRITER_NAME}
+
+#5
+COPY ./rmi_keystore.jks ${JMETER_HOME}/bin
+COPY ./example.jmx ${JMETER_HOME}/bin

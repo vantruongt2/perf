@@ -68,9 +68,10 @@ docker run \
   --rm \
   jmeter-master \
   -n -X \
-  -Jserver.rmi.ssl.keystore.file=${data_src}/keys/rmi_keystore.jks \
+  -Jserver.rmi.ssl.keystore.file=rmi_keystore.jks \
   -Jclient.rmi.localport=7000 \
-  -Jremote_hosts $(echo $(printf ",%s" "${SERVER_IPS[@]}") | cut -c 2-) \
+  -R$(echo $(printf ",%s" "${SERVER_IPS[@]}") | cut -c 2-) \
+  -Djava.rmi.server.hostname=192.168.191.205 \
   -GnumberOfThreads=${threadCountBase} -DappName=${targetVersion} -GloopCount=1 \
   -t ${data_src}/jmx/Weather.jmx \
   -l ${data_src}/client/result_${timestamp}.jtl \
@@ -78,4 +79,6 @@ docker run \
 
 #6
 docker ps -a | awk '{ print $1,$2 }' | grep jmeter | awk '{print $1 }' | xargs -I {} docker rm {} -f
+docker network rm $TEST_NET
+ }' | xargs -I {} docker rm {} -f
 docker network rm $TEST_NET
