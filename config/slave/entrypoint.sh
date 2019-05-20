@@ -11,4 +11,4 @@ echo "START Running Jmeter Slave on `date`"
 echo "JVM_ARGS=${JVM_ARGS}"
 
 cd $JMETER_HOME/bin
-./jmeter-server -Dserver.rmi.localport=50000 -Dserver_port=1099
+./jmeter-server -Djava.rmi.server.hostname=192.168.190.125 -Dserver.rmi.localport=35000 -Dserver.rmi.ssl.disable=true -Dserver_port=1099

@@ -1,11 +1,12 @@
-# 1
 FROM vantruongt2/jmeter:jmeter-base
 
-# Ports to be exposed from the container for JMeter Slaves/Server
-EXPOSE 1099 50000
+ENV server.rmi.ssl.disable=true
 
-COPY entrypoint.sh /
-COPY ../../keys/rmi_keystore.jks ${JMETER_BIN}/
+# Ports to be exposed from the container for JMeter Slaves/Server
+EXPOSE 1099 35000
+
+COPY ./entrypoint.sh /
+COPY ./rmi_keystore.jks ${JMETER_HOME}/bin
 
 # Application to run on starting the container
 ENTRYPOINT ["/entrypoint.sh"]

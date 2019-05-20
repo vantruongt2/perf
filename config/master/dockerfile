@@ -1,5 +1,5 @@
 # 1
-FROM jmeter-base
+FROM vantruongt2/jmeter:jmeter-base
 
 # 2
 LABEL maintainer="tien.tran"
@@ -13,3 +13,7 @@ ENV JMETER_PLUGINS_FOLDER ${JMETER_HOME}/lib/ext/
 
 # 4
 RUN curl -L --silent ${JMETER_PLUGIN_INFLUXDB_WRITER_URL} -o ${JMETER_PLUGINS_FOLDER}/${JMETER_INFLUXDB_WRITER_NAME}
+
+#5
+COPY ./rmi_keystore.jks ${JMETER_HOME}/bin
+COPY ./example.jmx ${JMETER_HOME}/bin
