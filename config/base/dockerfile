@@ -20,9 +20,6 @@ RUN   mkdir /jmeter \
       && tar -xzf apache-jmeter-$JMETER_VERSION.tgz \
       && rm apache-jmeter-$JMETER_VERSION.tgz
 
-# ADD all the plugins
-ADD jmeter-plugins/lib /jmeter/apache-jmeter-$JMETER_VERSION/lib
-
 # Set JMeter Home
 ENV JMETER_HOME /jmeter/apache-jmeter-$JMETER_VERSION/
 
