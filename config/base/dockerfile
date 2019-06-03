@@ -1,37 +1,31 @@
-# 1
-FROM alpine:3.6
+# Use Java 8 slim JRE
+FROM openjdk:8-jre-slim
+MAINTAINER TestAutomationGuru
 
-# 2
-ARG JMETER_VERSION="5.1.1"
+# JMeter version
+ARG JMETER_VERSION=5.1.1
 
-# 3
-ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
-ENV JMETER_BIN  ${JMETER_HOME}/bin
-ENV MIRROR_HOST http://mirrors.ocf.berkeley.edu/apache/jmeter
-ENV JMETER_DOWNLOAD_URL ${MIRROR_HOST}/binaries/apache-jmeter-${JMETER_VERSION}.tgz
-ENV JMETER_PLUGINS_DOWNLOAD_URL http://repo1.maven.org/maven2/kg/apc
-ENV JMETER_PLUGINS_FOLDER ${JMETER_HOME}/lib/ext/
+# Install few utilities
+RUN apt-get clean && \
+    apt-get update && \
+    apt-get -qy install \
+                wget \
+                telnet \
+                iputils-ping \
+                unzip
 
-# 4
-RUN    apk update \
-	&& apk upgrade \
-	&& apk add ca-certificates \
-	&& update-ca-certificates \
-            && apk add --update openjdk8-jre tzdata curl unzip bash \
-            && cp /usr/share/zoneinfo/Europe/Rome /etc/localtime \
-            && echo "Europe/Rome" >  /etc/timezone \
-	&& rm -rf /var/cache/apk/* \
-	&& mkdir -p /tmp/dependencies  \
-	&& curl -L --silent ${JMETER_DOWNLOAD_URL} >  /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz  \
-	&& mkdir -p /opt  \
-	&& tar -xzf /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz -C /opt  \
-	&& rm -rf /tmp/dependencies
+# Install JMeter
+RUN   mkdir /jmeter \
+      && cd /jmeter/ \
+      && wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-$JMETER_VERSION.tgz \
+      && tar -xzf apache-jmeter-$JMETER_VERSION.tgz \
+      && rm apache-jmeter-$JMETER_VERSION.tgz
 
-RUN apk add --no-cache nss
+# ADD all the plugins
+ADD jmeter-plugins/lib /jmeter/apache-jmeter-$JMETER_VERSION/lib
 
-# 5
-ENV PATH $PATH:$JMETER_BIN
+# Set JMeter Home
+ENV JMETER_HOME /jmeter/apache-jmeter-$JMETER_VERSION/
 
-# 6
-WORKDIR ${JMETER_HOME}
-
+# Add JMeter to the Path
+ENV PATH $JMETER_HOME/bin:$PATH
