@@ -1,5 +1,4 @@
-# Use Java 8 slim JRE
-FROM openjdk:8-jre-slim
+FROM alpine:3.9
 
 # JMeter version
 ARG JMETER_VERSION=5.1.1
