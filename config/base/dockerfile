@@ -1,5 +1,5 @@
 # Use Java 8 slim JRE
-FROM openjdk8-jre
+FROM openjdk-8-jre
 
 # JMeter version
 ARG JMETER_VERSION=5.1.1
