@@ -21,7 +21,7 @@ RUN   mkdir /jmeter \
       && rm apache-jmeter-$JMETER_VERSION.tgz
 
 # ADD the sample test
-ADD base/example/demo.jmx /jmeter/apache-jmeter-$JMETER_VERSION/bin
+ADD jmeter/base/example /jmeter/apache-jmeter-$JMETER_VERSION/bin
 
 # Set JMeter Home
 ENV JMETER_HOME /jmeter/apache-jmeter-$JMETER_VERSION/
