@@ -3,7 +3,3 @@ FROM vantruongt2/jmbase
 
 # Ports to be exposed from the container for JMeter Master
 EXPOSE 60000
-
-# Copy rmi keystore
-COPY ./rmi_keystore.jks ${JMETER_HOME}/bin
-COPY ./example.jmx ${JMETER_HOME}/bin
