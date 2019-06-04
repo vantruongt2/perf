@@ -1,4 +1,4 @@
-FROM vantruongt2/jmbase
+FROM vantruongt2/jmbase:5.1
 
 # Ports to be exposed from the container for JMeter Slaves/Server
 EXPOSE 1099 50000
