@@ -1,20 +1,29 @@
-# Use JDK-8 on alpine.
-From openjdk:8-alpine
+FROM alpine:3.9
 
-ENV JMETER_VERSION 5.1.1
+ARG JMETER_VERSION="5.1.1"
+ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
+ENV	JMETER_BIN	${JMETER_HOME}/bin
+ENV	JMETER_DOWNLOAD_URL  https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz
 
-# Install Pre-requisite Packages like wget
-RUN apk update && apk add wget unzip
+# Install extra packages
+# See https://github.com/gliderlabs/docker-alpine/issues/136#issuecomment-272703023
+# Change TimeZone TODO: TZ still is not set!
+ARG TZ="Europe/Amsterdam"
+RUN    apk update \
+	&& apk upgrade \
+	&& apk add ca-certificates \
+	&& update-ca-certificates \
+	&& apk add --update openjdk8-jre tzdata curl unzip bash \
+	&& apk add --no-cache nss \
+	&& rm -rf /var/cache/apk/* \
+	&& mkdir -p /tmp/dependencies  \
+	&& curl -L --silent ${JMETER_DOWNLOAD_URL} >  /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz  \
+	&& mkdir -p /opt  \
+	&& tar -xzf /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz -C /opt  \
+	&& rm -rf /tmp/dependencies
 
-# Installing jmeter
-RUN   mkdir /jmeter \
-        && cd /jmeter/ \
-        && wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-$JMETER_VERSION.tgz \
-        && tar -xzf apache-jmeter-$JMETER_VERSION.tgz \ 
-	&& rm apache-jmeter-$JMETER_VERSION.tgz 
+# TODO: plugins (later)
+# && unzip -oq "/tmp/dependencies/JMeterPlugins-*.zip" -d $JMETER_HOME
 
-# Settingt Jmeter Home
-ENV JMETER_HOME /jmeter/apache-jmeter-$JMETER_VERSION/
-
-# Finally Adding Jmeter to the Path
-ENV PATH $JMETER_HOME/bin:$PATH
+# Set global PATH such that "jmeter" command is found
+ENV PATH $PATH:$JMETER_BIN
